@@ -5,26 +5,22 @@
  */
 package controller;
 
-import model.Contato;
-import persistence.ContatoDAO;
+import action.ApagarContatoAction;
+import action.GravarContatoAction;
+import action.LerContatoAction;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
+import static java.lang.System.out;
 import javax.servlet.ServletException;
-import java.lang.ClassNotFoundException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 /**
  *
- * @author Leoginski
+ * @author Aluno
  */
-public class ContatoController extends HttpServlet {
+public class FrontController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,20 +31,24 @@ public class ContatoController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
-        String nome = request.getParameter("textNome");
-        String email = request.getParameter("textEmail");
-        if (nome.equals("") || email.equals("")) {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        String action = request.getParameter("action");
+        Action actionObject = null;
+
+        if (action == null || action.equals("")) {
             response.sendRedirect("index.jsp");
-        } else {
-            try {
-                Contato contato = new Contato(nome, email);
-                ContatoDAO.getInstance().save(contato);
-                response.sendRedirect("contatoSucesso.jsp");
-            } catch (SQLException ex) {
-                response.sendRedirect("contatoErro.jsp");
-                ex.printStackTrace();
-            }
+        } else if (action.equals("GravarContato")) {
+            actionObject = new GravarContatoAction();
+        } else if (action.equals("LerContato")) {
+            actionObject = new LerContatoAction();
+        } else if (action.equals("ApagarContato")) {
+            actionObject = new ApagarContatoAction();
+        }
+        
+        if (actionObject != null) {
+            actionObject.execute(request, response);
         }
     }
 
@@ -64,11 +64,7 @@ public class ContatoController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ContatoController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -82,11 +78,7 @@ public class ContatoController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ContatoController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
