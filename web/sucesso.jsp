@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-        <title>JSP Page</title>
+        <title>Sucesso</title>
     </head>
     <body>
-        <h1>Contato cadastrado com sucesso!</h1>
+        <h1>Sucesso!</h1>
     </body>
 </html>

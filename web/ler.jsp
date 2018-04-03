@@ -5,14 +5,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Inicio</title>
+        <title>Consulta</title>
     </head>
     <body>
-        <h1>Sistema de Contatos</h1>
+        <h1>Consulta de Contatos</h1>
 
-        <a href="gravar.jsp"><h3>Cadastro</h3></a>
-        <a href="ler.jsp"><h3>Consulta</h3></a>
-        <a href="apagar.jsp"> <h3>Apagar</h3></a>
-
+        <form action="FrontController?action=LerContato" method="post">
+            Digite o ID do contato:
+            <input type="text" name="textId"/><br/>
+            <input type="submit"/>
+        </form>
     </body>
 </html>

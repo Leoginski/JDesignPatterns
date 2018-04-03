@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-        <title>JSP Page</title>
+        <title>Erro</title>
     </head>
     <body>
-        <h1>HOcorreu algum erro ao cadastrar o contato!</h1>
+        <h1>HOcorreu algum erro!</h1>
     </body>
 </html>
