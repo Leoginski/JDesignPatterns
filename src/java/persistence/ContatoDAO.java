@@ -55,10 +55,6 @@ public class ContatoDAO {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
 
-            if (!st.execute("SELECT * FROM contato AS c WHERE c.id = " + contato.getId())) {
-                //lançar erro
-            }
-
             ResultSet rs = st.executeQuery("SELECT * FROM contato AS c WHERE c.id = " + contato.getId());
             while (rs.next()) {
                 contatoResult.setId(rs.getInt("c.id"));
@@ -67,6 +63,26 @@ public class ContatoDAO {
             }
 
             return contatoResult;
+        } catch (SQLException e) {
+            throw e;
+        } finally {
+            closeResourcer(conn, st);
+        }
+    }
+
+    public void editar(Contato contato) throws SQLException, ClassNotFoundException {
+        Connection conn = null;
+        Statement st = null;
+
+        try {
+            conn = DatabaseLocator.getInstance().getConnection();
+            st = conn.createStatement();
+
+            st.execute(
+                    "UPDATE contato AS c"
+                    + " SET nome = '" + contato.getNome() + "', email = '" + contato.getEmail() + "'"
+                    + " WHERE c.id = " + contato.getId());
+
         } catch (SQLException e) {
             throw e;
         } finally {

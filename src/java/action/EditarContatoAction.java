@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package action;
 
 import controller.Action;
@@ -15,33 +10,36 @@ import persistence.ContatoDAO;
 
 /**
  *
- * @author Aluno
+ * @author DualLayer
  */
-public class ApagarContatoAction implements Action {
+public class EditarContatoAction implements Action {
 
-    public ApagarContatoAction() {
+    public EditarContatoAction() {
     }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String id = request.getParameter("textId");
+        String nome = request.getParameter("textNome");
+        String email = request.getParameter("textEmail");
 
-        if (id.equals("")) {
-            response.sendRedirect("index.jsp");
+        Contato contatoResponse = new Contato();
+
+        if (id.equals("") || nome.equals("") || email.equals("")) {
+            response.sendRedirect("ler.jsp");
         } else {
-
-            Contato contato = new Contato(Integer.parseInt(id));
-
+            Contato contato = new Contato(Integer.parseInt(id), nome, email);
             try {
-                ContatoDAO.getInstance().delete(contato);
+                ContatoDAO.getInstance().editar(contato);
             } catch (ClassNotFoundException ex) {
                 ex.printStackTrace();
             } catch (SQLException ex) {
-                response.sendRedirect("apagar.jsp?erro=" + ex);
+                response.sendRedirect("erro.jsp?erro=" + ex);
                 ex.printStackTrace();
             }
         }
+
     }
 
 }

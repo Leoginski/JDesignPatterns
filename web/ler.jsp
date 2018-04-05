@@ -25,84 +25,57 @@
                     <li class="nav-item">
                         <a class="nav-link" href="gravar.jsp">Gravar</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="ler.jsp">Ler</a>
+                    <li class="nav-item" active>
+                        <a class="nav-link" href="ler.jsp">Ler<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="apagar.jsp">Apagar<span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="editar.jsp">Editar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="apagar.jsp">Apagar</a>
                     </li>
                 </ul>
             </div>
         </nav>
 
-        <main role="main" class="container">
-            <div class="starter-template">
-
-                <div class="page-alerts">
-                    <div class="alert alert-success page-alert" id="succes">
-                        <button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                        <strong>Encontrado</strong> com sucesso!
+    <main role="main" class="container">
+        <div class="starter-template">
+            <h1>Ler Contato</h1>
+            <form action="FrontController?action=LerContato" method="POST">
+                <div class="input-group mb-2 col-md-6 offset-md-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
                     </div>
-
-                    <div class="alert alert-danger page-alert" id="succes">
-                        <button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                        Algo deu <strong>errado!</strong>
-                    </div>
+                    <input type="text" name="textId" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                 </div>
+                <input class="btn btn-primary" type="submit"/>
+            </form>
+            <br><br>
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row"><%= request.getParameter("id")%></th>
+                        <td><%= request.getParameter("nome")%></td>
+                        <td><%= request.getParameter("email")%></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
 
-                <h1>Ler Contato</h1>
-                <form id="formLer">
-                    <div class="input-group mb-2 col-md-6 offset-md-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
-                        </div>
-                        <input type="text" name="textId" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                    </div>
-                    <input class="btn btn-primary" type="submit"/>
-                </form>
-                <br><br>
-                Id: <%= request.getParameter("id")%>
-                <br>
-                Nome: <%= request.getParameter("nome")%>
-                <br>
-                Email: <%= request.getParameter("email")%>
-            </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-        </main><!-- /.container -->
-
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script type="text/javascript">
-            $(function () {
-                $('.page-alert').hide();
-                var form = $('#formLer');
-
-                form.submit(function (e) {
-                    e.preventDefault();
-                    $('.page-alert').hide();
-
-                    $.ajax({
-                        url: "FrontController?action=LerContato",
-                        type: 'post',
-                        context: document.body,
-                        data: form.serialize()
-                    }).done(function () {
-                        var alert = $("#succes");
-                        alert.appendTo('.page-alerts');
-                        alert.slideDown();
-                    }).fail(function () {
-                        var alert = $("#erro");
-                        alert.appendTo('.page-alerts');
-                        alert.slideDown();
-                    });
-                });
-            });
-
-        </script>
-    </body>
+    <script type="text/javascript">
+    </script>
+</body>
 </html>

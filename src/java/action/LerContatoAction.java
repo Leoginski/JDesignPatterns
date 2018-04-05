@@ -29,6 +29,7 @@ public class LerContatoAction implements Action {
             Contato contato = new Contato(Integer.parseInt(id));
             try {
                 contatoResponse = ContatoDAO.getInstance().get(contato);
+                response.sendRedirect("ler.jsp?id=" + contatoResponse.getId() + "&nome=" + contatoResponse.getNome() + "&email=" + contatoResponse.getEmail());
             } catch (ClassNotFoundException ex) {
                 ex.printStackTrace();
             } catch (SQLException ex) {

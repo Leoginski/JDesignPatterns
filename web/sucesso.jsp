@@ -29,6 +29,9 @@
                         <a class="nav-link" href="ler.jsp">Ler</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="editar.jsp">Editar</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="apagar.jsp">Apagar <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
