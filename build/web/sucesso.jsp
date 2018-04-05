@@ -5,7 +5,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Inicio</title>
+        <title>Sucesso</title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="./starter-template.css">
@@ -30,7 +30,7 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.jsp">Home</a></li>
+                    <li><a href="index.jsp">Home</a></li>
                     <li><a href="gravar.jsp">Cadastro</a></li>
                     <li><a href="apagar.jsp">Apagar</a></li>
                     <li><a href="ler.jsp">Ler</a></li>
@@ -39,15 +39,13 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container" >
         <div class="starter-template">
 
-            <h1>Sistema de Cadastro de Contatos</h1>
-            <p class="lead">Se você deseja cadastrar seus contatos, pode começar clicando <a href="gravar.jsp">aqui</a></p>
+            <h1>Sucesso!</h1>
 
         </div>
-    </div>
-
+    </div><!-- /.container -->
 
 
     <!-- Bootstrap core JavaScript
