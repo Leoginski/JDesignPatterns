@@ -53,13 +53,13 @@
                 <h1>Cadastro Contatos</h1>
 
                 <form id="formCadastro">
-                    <div class="input-group mb-2 col-sm-4 offset-md-4">
+                    <div class="input-group mb-2 col-md-6 offset-md-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
                         </div>
                         <input name="textNome" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                     </div>
-                    <div class="input-group mb-2 col-sm-4 offset-md-4">
+                    <div class="input-group mb-2 col-md-6 offset-md-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
                         </div>
@@ -89,6 +89,7 @@
 
                     $.ajax({
                         url: "FrontController?action=GravarContato",
+                        type: 'post',
                         context: document.body,
                         data: form.serialize()
                     }).done(function () {

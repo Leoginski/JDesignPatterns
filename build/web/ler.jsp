@@ -52,7 +52,7 @@
 
                 <h1>Ler Contato</h1>
                 <form id="formLer">
-                    <div class="input-group mb-2 col-sm-4 offset-md-4">
+                    <div class="input-group mb-2 col-md-6 offset-md-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
                         </div>
@@ -88,6 +88,7 @@
 
                     $.ajax({
                         url: "FrontController?action=LerContato",
+                        type: 'post',
                         context: document.body,
                         data: form.serialize()
                     }).done(function () {
