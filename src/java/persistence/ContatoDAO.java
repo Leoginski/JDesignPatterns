@@ -56,6 +56,7 @@ public class ContatoDAO {
             st = conn.createStatement();
 
             if (!st.execute("SELECT * FROM contato AS c WHERE c.id = " + contato.getId())) {
+                //lançar erro
             }
 
             ResultSet rs = st.executeQuery("SELECT * FROM contato AS c WHERE c.id = " + contato.getId());

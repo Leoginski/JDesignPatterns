@@ -35,7 +35,6 @@ public class ApagarContatoAction implements Action {
 
             try {
                 ContatoDAO.getInstance().delete(contato);
-                response.sendRedirect("sucesso.jsp");
             } catch (ClassNotFoundException ex) {
                 ex.printStackTrace();
             } catch (SQLException ex) {
