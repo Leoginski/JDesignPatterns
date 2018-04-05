@@ -36,7 +36,6 @@ public class GravarContatoAction implements Action {
 
             try {
                 ContatoDAO.getInstance().save(contato);
-                response.sendRedirect("sucesso.jsp");
             } catch (ClassNotFoundException ex) {
                 ex.printStackTrace();
             } catch (SQLException ex) {

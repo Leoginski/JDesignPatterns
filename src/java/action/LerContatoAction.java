@@ -24,14 +24,11 @@ public class LerContatoAction implements Action {
         Contato contatoResponse = new Contato();
 
         if (id.equals("")) {
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("ler.jsp");
         } else {
-
             Contato contato = new Contato(Integer.parseInt(id));
-
             try {
                 contatoResponse = ContatoDAO.getInstance().get(contato);
-                response.sendRedirect("sucesso.jsp");
             } catch (ClassNotFoundException ex) {
                 ex.printStackTrace();
             } catch (SQLException ex) {
@@ -39,6 +36,7 @@ public class LerContatoAction implements Action {
                 ex.printStackTrace();
             }
         }
+
     }
 
 }
