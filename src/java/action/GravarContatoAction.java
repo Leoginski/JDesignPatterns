@@ -19,7 +19,8 @@ import persistence.ContatoDAO;
  */
 public class GravarContatoAction implements Action {
 
-    public GravarContatoAction() {}
+    public GravarContatoAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -30,14 +31,16 @@ public class GravarContatoAction implements Action {
         if (nome.equals("") || email.equals("")) {
             response.sendRedirect("index.jsp");
         } else {
+
             Contato contato = new Contato(nome, email);
+
             try {
                 ContatoDAO.getInstance().save(contato);
-                response.sendRedirect("contatoSucesso.jsp");
+                response.sendRedirect("sucesso.jsp");
             } catch (ClassNotFoundException ex) {
                 ex.printStackTrace();
             } catch (SQLException ex) {
-                response.sendRedirect("contatoErro.jsp");
+                response.sendRedirect("erro.jsp?erro=" + ex);
                 ex.printStackTrace();
             }
         }
