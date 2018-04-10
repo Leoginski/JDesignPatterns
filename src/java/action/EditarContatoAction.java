@@ -24,14 +24,14 @@ public class EditarContatoAction implements Action {
         String nome = request.getParameter("textNome");
         String email = request.getParameter("textEmail");
 
-        Contato contatoResponse = new Contato();
+        Contato ContatoResponse = new Contato();
 
         if (id.equals("") || nome.equals("") || email.equals("")) {
-            response.sendRedirect("ler.jsp");
+            response.sendRedirect("Contato/editar.jsp");
         } else {
-            Contato contato = new Contato(Integer.parseInt(id), nome, email);
+            Contato Contato = new Contato(Integer.parseInt(id), nome, email);
             try {
-                ContatoDAO.getInstance().editar(contato);
+                ContatoDAO.getInstance().editar(Contato);
             } catch (ClassNotFoundException ex) {
                 ex.printStackTrace();
             } catch (SQLException ex) {

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Apr 04, 2018 at 11:35 PM
--- Server version: 5.7.21-log
--- PHP Version: 5.6.31
+-- Host: 127.0.0.1
+-- Generation Time: 10-Abr-2018 às 15:08
+-- Versão do servidor: 10.1.30-MariaDB
+-- PHP Version: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -27,9 +27,7 @@ USE `designpatterns`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contato`
---
--- Creation: Apr 04, 2018 at 11:34 PM
+-- Estrutura da tabela `contato`
 --
 
 DROP TABLE IF EXISTS `contato`;
@@ -37,6 +35,19 @@ CREATE TABLE IF NOT EXISTS `contato` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `departamento`
+--
+
+DROP TABLE IF EXISTS `departamento`;
+CREATE TABLE IF NOT EXISTS `departamento` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 COMMIT;

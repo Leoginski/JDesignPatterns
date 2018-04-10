@@ -21,15 +21,15 @@ public class LerContatoAction implements Action {
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String id = request.getParameter("textId");
-        Contato contatoResponse = new Contato();
+        Contato ContatoResponse = new Contato();
 
         if (id.equals("")) {
             response.sendRedirect("ler.jsp");
         } else {
-            Contato contato = new Contato(Integer.parseInt(id));
+            Contato Contato = new Contato(Integer.parseInt(id));
             try {
-                contatoResponse = ContatoDAO.getInstance().get(contato);
-                response.sendRedirect("ler.jsp?id=" + contatoResponse.getId() + "&nome=" + contatoResponse.getNome() + "&email=" + contatoResponse.getEmail());
+                ContatoResponse = ContatoDAO.getInstance().get(Contato);
+                response.sendRedirect("Contato/ler.jsp?id=" + ContatoResponse.getId() + "&nome=" + ContatoResponse.getNome() + "&email=" + ContatoResponse.getEmail());
             } catch (ClassNotFoundException ex) {
                 ex.printStackTrace();
             } catch (SQLException ex) {

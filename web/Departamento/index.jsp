@@ -6,13 +6,13 @@
     <head>
         <meta charset="utf-8">
         <title>Inicio</title>
-        <link href="starter-template.css" rel="stylesheet">
+        <link href="../starter-template.css" rel="stylesheet">
     </head>
 
     <body>
 
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-            <a class="navbar-brand" href="index.jsp">SISTEMA DE CADASTRO</a>
+        <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+            <a class="navbar-brand" href="../index.jsp">SISTEMA DE DEPARTAMENTOS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -20,13 +20,19 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="../index.jsp">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Contato/index.jsp">Contato</a>
+                        <a class="nav-link" href="gravar.jsp">Gravar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Departamento/index.jsp">Departamento</a>
+                        <a class="nav-link" href="ler.jsp">Ler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="editar.jsp">Editar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="apagar.jsp">Apagar</a>
                     </li>
                 </ul>
             </div>
@@ -34,7 +40,10 @@
 
         <main role="main" class="container">
             <div class="starter-template">
-                <h1>Sistema de Cadastro</h1>
+
+                <h1>Sistema de Cadastro de Departamentos</h1>
+                <p class="lead">Se você deseja cadastrar seus departamentos, pode começar clicando <a href="gravar.jsp">aqui</a></p>
+
             </div>
         </main><!-- /.container -->
 

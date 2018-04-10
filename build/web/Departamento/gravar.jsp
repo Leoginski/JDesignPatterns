@@ -5,14 +5,14 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Editar Contatos</title>
-        <link href="starter-template.css" rel="stylesheet">
+        <title>Inicio</title>
+        <link href="../starter-template.css" rel="stylesheet">
     </head>
 
     <body>
 
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-            <a class="navbar-brand" href="index.jsp">SISTEMA DE CONTATOS</a>
+        <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+            <a class="navbar-brand" href="../index.jsp">SISTEMA DE DEPARTAMENTOS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -20,16 +20,16 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.jsp">Home</a>
+                        <a class="nav-link" href="../index.jsp">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="gravar.jsp">Gravar</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="gravar.jsp">Gravar <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="ler.jsp">Ler</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="editar.jsp">Editar <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="editar.jsp">Editar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="apagar.jsp">Apagar</a>
@@ -44,32 +44,20 @@
             <div class="page-alerts">
                 <div class="alert alert-success page-alert" id="succes">
                     <button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                    <strong>Editado</strong> com sucesso!
+                    <strong>Salvo</strong> com sucesso!
                 </div>
             </div>
 
-            <h1>Editar Contatos</h1>
+            <h1>Cadastro Departamentos</h1>
 
-            <form id="formEditar">
-                <div class="input-group mb-2 col-md-6 offset-md-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
-                    </div>
-                    <input name="textId" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                </div>
+            <form id="form">
                 <div class="input-group mb-2 col-md-6 offset-md-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
                     </div>
                     <input name="textNome" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                 </div>
-                <div class="input-group mb-2 col-md-6 offset-md-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
-                    </div>
-                    <input name="textEmail" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                </div>
-                <input class="btn btn-warning" type="submit"/>
+                <input class="btn btn-success" type="submit"/>
             </form>
 
         </div>
@@ -85,14 +73,14 @@
     <script type="text/javascript">
         $(function() {
             $('.page-alert').hide();
-            var form = $('#formEditar');
+            var form = $('#form');
 
             form.submit(function(e) {
                 e.preventDefault();
                 $('.page-alert').hide();
 
                 $.ajax({
-                    url: "FrontController?action=EditarContato",
+                    url: "../FrontController?action=GravarDepartamento",
                     type: 'post',
                     context: document.body,
                     data: form.serialize()

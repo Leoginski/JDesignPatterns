@@ -5,14 +5,14 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Apagar</title>
-        <link href="starter-template.css" rel="stylesheet">
+        <title>Apagar Departamento</title>
+        <link href="../starter-template.css" rel="stylesheet">
     </head>
 
     <body>
 
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-            <a class="navbar-brand" href="index.jsp">SISTEMA DE CONTATOS</a>
+        <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+            <a class="navbar-brand" href="../index.jsp">SISTEMA DE DEPARTAMENTOS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.jsp">Home</a>
+                        <a class="nav-link" href="../index.jsp">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="gravar.jsp">Gravar</a>
@@ -48,8 +48,8 @@
                 </div>
             </div>
 
-            <h1>Apagar Contato</h1>
-            <form id="formApagar">
+            <h1>Apagar Departamento</h1>
+            <form id="form">
                 <div class="input-group mb-2 col-md-6 offset-md-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
@@ -72,13 +72,13 @@
     <script type="text/javascript">
         $(function() {
             $('.page-alert').hide();
-            var form = $('#formApagar');
+            var form = $('#form');
 
             form.submit(function(e) {
                 e.preventDefault();
                 $('.page-alert').hide();
                 $.ajax({
-                    url: "FrontController?action=ApagarContato",
+                    url: "../FrontController?action=ApagarDepartamento",
                     type: 'post',
                     context: document.body,
                     data: form.serialize()

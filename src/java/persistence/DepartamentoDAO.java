@@ -4,27 +4,27 @@ import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import model.Contato;
+import model.Departamento;
 
-public class ContatoDAO {
+public class DepartamentoDAO {
 
-    private static ContatoDAO instance = new ContatoDAO();
+    private static DepartamentoDAO instance = new DepartamentoDAO();
 
-    public static ContatoDAO getInstance() {
+    public static DepartamentoDAO getInstance() {
         return instance;
     }
 
-    private ContatoDAO() {
+    private DepartamentoDAO() {
     }
 
-    public void save(Contato Contato) throws SQLException, ClassNotFoundException {
+    public void save(Departamento departamento) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("INSERT INTO Contato (nome, email) "
-                    + "VALUES ('" + Contato.getNome() + "', '" + Contato.getEmail() + "')");
+            st.execute("INSERT INTO DEPARTAMENTO (nome) "
+                    + "VALUES ('" + departamento.getNome() + "')");
         } catch (SQLException e) {
             throw e;
         } finally {
@@ -32,13 +32,13 @@ public class ContatoDAO {
         }
     }
 
-    public void delete(Contato Contato) throws SQLException, ClassNotFoundException {
+    public void delete(Departamento departamento) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("DELETE FROM Contato WHERE id = " + Contato.getId());
+            st.execute("DELETE FROM DEPARTAMENTO WHERE id = " + departamento.getId());
         } catch (SQLException e) {
             throw e;
         } finally {
@@ -46,23 +46,22 @@ public class ContatoDAO {
         }
     }
 
-    public Contato get(Contato Contato) throws SQLException, ClassNotFoundException {
+    public Departamento get(Departamento departamento) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
-        Contato ContatoResult = new Contato();
+        Departamento departamentoResult = new Departamento();
 
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
 
-            ResultSet rs = st.executeQuery("SELECT * FROM Contato AS c WHERE c.id = " + Contato.getId());
+            ResultSet rs = st.executeQuery("SELECT * FROM DEPARTAMENTO AS c WHERE c.id = " + departamento.getId());
             while (rs.next()) {
-                ContatoResult.setId(rs.getInt("c.id"));
-                ContatoResult.setNome(rs.getString("c.nome"));
-                ContatoResult.setEmail(rs.getString("c.email"));
+                departamentoResult.setId(rs.getInt("c.id"));
+                departamentoResult.setNome(rs.getString("c.nome"));
             }
 
-            return ContatoResult;
+            return departamentoResult;
         } catch (SQLException e) {
             throw e;
         } finally {
@@ -70,7 +69,7 @@ public class ContatoDAO {
         }
     }
 
-    public void editar(Contato Contato) throws SQLException, ClassNotFoundException {
+    public void editar(Departamento departamento) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
 
@@ -79,9 +78,8 @@ public class ContatoDAO {
             st = conn.createStatement();
 
             st.execute(
-                    "UPDATE Contato AS c"
-                    + " SET nome = '" + Contato.getNome() + "', email = '" + Contato.getEmail() + "'"
-                    + " WHERE c.id = " + Contato.getId());
+                    "UPDATE DEPARTAMENTO AS c"
+                    + " SET nome = '" + departamento.getNome() + "' WHERE c.id = " + departamento.getId());
 
         } catch (SQLException e) {
             throw e;

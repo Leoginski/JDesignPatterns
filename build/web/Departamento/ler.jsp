@@ -6,13 +6,13 @@
     <head>
         <meta charset="utf-8">
         <title>Ler</title>
-        <link href="starter-template.css" rel="stylesheet">
+        <link href="../starter-template.css" rel="stylesheet">
     </head>
 
     <body>
 
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-            <a class="navbar-brand" href="index.jsp">SISTEMA DE CONTATOS</a>
+        <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+            <a class="navbar-brand" href="../index.jsp">SISTEMA DE DEPARTAMENTOS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.jsp">Home</a>
+                        <a class="nav-link" href="../index.jsp">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="gravar.jsp">Gravar</a>
@@ -40,8 +40,8 @@
 
     <main role="main" class="container">
         <div class="starter-template">
-            <h1>Ler Contato</h1>
-            <form action="FrontController?action=LerContato" method="POST">
+            <h1>Ler Departamento</h1>
+            <form action="../FrontController?action=LerDepartamento" method="POST">
                 <div class="input-group mb-2 col-md-6 offset-md-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
@@ -56,14 +56,12 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Nome</th>
-                        <th scope="col">Email</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th scope="row"><%= request.getParameter("id")%></th>
                         <td><%= request.getParameter("nome")%></td>
-                        <td><%= request.getParameter("email")%></td>
                     </tr>
                 </tbody>
             </table>

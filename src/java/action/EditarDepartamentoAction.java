@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package action;
 
 import controller.Action;
@@ -10,32 +5,32 @@ import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Contato;
-import persistence.ContatoDAO;
+import model.Departamento;
+import persistence.DepartamentoDAO;
 
 /**
  *
- * @author Aluno
+ * @author DualLayer
  */
-public class GravarContatoAction implements Action {
+public class EditarDepartamentoAction implements Action {
 
-    public GravarContatoAction() {
+    public EditarDepartamentoAction() {
     }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+        String id = request.getParameter("textId");
         String nome = request.getParameter("textNome");
-        String email = request.getParameter("textEmail");
 
-        if (nome.equals("") || email.equals("")) {
-            response.sendRedirect("Contato/gravar.jsp");
+        Departamento departamentoResponse = new Departamento();
+
+        if (id.equals("") || nome.equals("")) {
+            response.sendRedirect("Departamento/editar.jsp");
         } else {
-
-            Contato Contato = new Contato(nome, email);
-
+            Departamento departamento = new Departamento(Integer.parseInt(id), nome);
             try {
-                ContatoDAO.getInstance().save(Contato);
+                DepartamentoDAO.getInstance().editar(departamento);
             } catch (ClassNotFoundException ex) {
                 ex.printStackTrace();
             } catch (SQLException ex) {
@@ -43,6 +38,7 @@ public class GravarContatoAction implements Action {
                 ex.printStackTrace();
             }
         }
+
     }
 
 }

@@ -12,7 +12,7 @@
     <body>
 
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-            <a class="navbar-brand" href="index.jsp">SISTEMA DE CONTATOS</a>
+            <a class="navbar-brand" href="index.jsp">SISTEMA DE CADASTRO</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -23,16 +23,10 @@
                         <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="gravar.jsp">Gravar</a>
+                        <a class="nav-link" href="Contato/index.jsp">Contato</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ler.jsp">Ler</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="editar.jsp">Editar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="apagar.jsp">Apagar</a>
+                        <a class="nav-link" href="Departamento/index.jsp">Departamento</a>
                     </li>
                 </ul>
             </div>
@@ -40,10 +34,7 @@
 
         <main role="main" class="container">
             <div class="starter-template">
-
-                <h1>Sistema de Cadastro de Contatos</h1>
-                <p class="lead">Se você deseja cadastrar seus contatos, pode começar clicando <a href="gravar.jsp">aqui</a></p>
-
+                <h1>Sistema de Cadastro</h1>
             </div>
         </main><!-- /.container -->
 

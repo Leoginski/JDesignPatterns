@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package action;
 
 import controller.Action;
@@ -10,31 +5,31 @@ import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Contato;
-import persistence.ContatoDAO;
+import model.Departamento;
+import persistence.DepartamentoDAO;
 
 /**
  *
- * @author Aluno
+ * @author DualLayer
  */
-public class ApagarContatoAction implements Action {
+public class LerDepartamentoAction implements Action {
 
-    public ApagarContatoAction() {
+    public LerDepartamentoAction() {
     }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String id = request.getParameter("textId");
+        Departamento departamentoResponse = new Departamento();
 
         if (id.equals("")) {
-            response.sendRedirect("Contato/apagar.jsp");
+            response.sendRedirect("lerDepartamento.jsp");
         } else {
-
-            Contato Contato = new Contato(Integer.parseInt(id));
-
+            Departamento departamento = new Departamento(Integer.parseInt(id));
             try {
-                ContatoDAO.getInstance().delete(Contato);
+                departamentoResponse = DepartamentoDAO.getInstance().get(departamento);
+                response.sendRedirect("Departamento/ler.jsp?id=" + departamentoResponse.getId() + "&nome=" + departamentoResponse.getNome());
             } catch (ClassNotFoundException ex) {
                 ex.printStackTrace();
             } catch (SQLException ex) {
@@ -42,6 +37,7 @@ public class ApagarContatoAction implements Action {
                 ex.printStackTrace();
             }
         }
+
     }
 
 }

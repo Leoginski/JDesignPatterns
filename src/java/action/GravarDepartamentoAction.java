@@ -10,36 +10,35 @@ import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Contato;
-import persistence.ContatoDAO;
+import model.Departamento;
+import persistence.DepartamentoDAO;
 
 /**
  *
  * @author Aluno
  */
-public class GravarContatoAction implements Action {
+public class GravarDepartamentoAction implements Action {
 
-    public GravarContatoAction() {
+    public GravarDepartamentoAction() {
     }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String nome = request.getParameter("textNome");
-        String email = request.getParameter("textEmail");
 
-        if (nome.equals("") || email.equals("")) {
-            response.sendRedirect("Contato/gravar.jsp");
+        if (nome.equals("")) {
+            response.sendRedirect("Departamento/gravar.jsp");
         } else {
 
-            Contato Contato = new Contato(nome, email);
+            Departamento departamento = new Departamento(nome);
 
             try {
-                ContatoDAO.getInstance().save(Contato);
+                DepartamentoDAO.getInstance().save(departamento);
             } catch (ClassNotFoundException ex) {
                 ex.printStackTrace();
             } catch (SQLException ex) {
-                response.sendRedirect("erro.jsp?erro=" + ex);
+                response.sendRedirect("../erro.jsp?erro=" + ex);
                 ex.printStackTrace();
             }
         }
