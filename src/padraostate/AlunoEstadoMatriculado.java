@@ -20,31 +20,37 @@ public class AlunoEstadoMatriculado implements AlunoEstado {
 
     @Override
     public EstadoAluno matricular() {
-        throw new UnsupportedOperationException("Mizeraviu, no és possible!"); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("O ALUNO JÁ ESTA MATRICULADO");
+        return null;
     }
 
     @Override
     public EstadoAluno evadir() {
+        System.out.println("O ALUNO EVADIDO");
         return EstadoAluno.EVADIDO;
     }
 
     @Override
     public EstadoAluno formar() {
-        return EstadoAluno.FORMADO;
+        System.out.println("O ALUNO FORMOU");
+        return EstadoAluno.EVADIDO;
     }
 
     @Override
     public EstadoAluno jubilar() {
+        System.out.println("O ALUNO JUBILOU");
         return EstadoAluno.JUBILADO;
     }
 
     @Override
     public EstadoAluno suspender() {
+        System.out.println("O ALUNO FOI SUSPENSO");
         return EstadoAluno.SUSPENSO;
     }
 
     @Override
     public EstadoAluno trancar() {
+        System.out.println("O ALUNO TRANCOU");
         return EstadoAluno.TRANCADO;
     }
 

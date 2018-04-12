@@ -18,34 +18,39 @@ public class AlunoEstadoJubilado implements AlunoEstado {
         return EstadoAluno.JUBILADO;
     }
 
-    @Override
+       @Override
     public EstadoAluno matricular() {
-        throw new UnsupportedOperationException("Mizeraviu, no és possible!"); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("O ALUNO NÃO FOI MATRICULADO");
+        return null;
     }
 
     @Override
     public EstadoAluno evadir() {
-        throw new UnsupportedOperationException("Mizeraviu, no és possible!"); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("O ALUNO NÃO FOI EVADIDO");
+        return null;
     }
 
     @Override
     public EstadoAluno formar() {
-        throw new UnsupportedOperationException("Mizeraviu, no és possible!"); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("O ALUNO NÃO FORMOU");
+        return null;
     }
 
     @Override
     public EstadoAluno jubilar() {
-        throw new UnsupportedOperationException("Mizeraviu, no és possible!"); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("O ALUNO JÁ ESTA JUBILADO");
+        return null;
     }
 
     @Override
     public EstadoAluno suspender() {
-        throw new UnsupportedOperationException("Mizeraviu, no és possible!"); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("O ALUNO NÃO FOI SUSPENSO");
+        return null;
     }
 
     @Override
     public EstadoAluno trancar() {
-        throw new UnsupportedOperationException("Mizeraviu, no és possible!"); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("O ALUNO NÃO TRANCOU");
+        return null;
     }
-    
 }

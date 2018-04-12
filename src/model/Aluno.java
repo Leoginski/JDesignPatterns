@@ -6,6 +6,8 @@
 package model;
 
 import enumerable.EstadoAluno;
+import padraostate.AlunoEstado;
+import padraostate.AlunoEstadoMatriculado;
 
 /**
  *
@@ -15,11 +17,11 @@ public class Aluno {
 
     private int id;
     private String nome;
-    private EstadoAluno estado;
+    private AlunoEstado estado;
 
     public Aluno(String nome) {
         this.nome = nome;
-        this.estado = EstadoAluno.MATRICULADO;
+        this.estado = new AlunoEstadoMatriculado();
     }
 
     public String getNome() {
@@ -30,37 +32,31 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public EstadoAluno getEstado() {
+    public AlunoEstado getEstado() {
         return estado;
     }
 
-    public void setEstado(EstadoAluno estado) {
-        this.estado = estado;
-    }    
-
-    public void matricular() {
-        if (this.estado == EstadoAluno.SUSPENSO || this.estado == EstadoAluno.TRANCADO) {
-            this.setEstado(EstadoAluno.MATRICULADO);
-        }
+    public EstadoAluno matricular() {
+        return estado.matricular();
     }
 
-    public void trancar() {
-
+    public EstadoAluno trancar() {
+        return estado.trancar();
     }
 
-    public void formar() {
-
+    public EstadoAluno formar() {
+        return estado.formar();
     }
 
-    public void suspender() {
-
+    public EstadoAluno suspender() {
+        return estado.suspender();
     }
 
-    public void evadir() {
-
+    public EstadoAluno evadir() {
+        return estado.evadir();
     }
 
-    public void jubilar() {
-
+    public EstadoAluno jubilar() {
+        return estado.jubilar();
     }
 }
