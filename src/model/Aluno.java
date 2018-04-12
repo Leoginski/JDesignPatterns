@@ -5,9 +5,13 @@
  */
 package model;
 
-import enumerable.EstadoAluno;
 import padraostate.AlunoEstado;
+import padraostate.AlunoEstadoEvadido;
+import padraostate.AlunoEstadoFormado;
+import padraostate.AlunoEstadoJubilado;
 import padraostate.AlunoEstadoMatriculado;
+import padraostate.AlunoEstadoSuspenso;
+import padraostate.AlunoEstadoTrancado;
 
 /**
  *
@@ -36,27 +40,33 @@ public class Aluno {
         return estado;
     }
 
-    public EstadoAluno matricular() {
-        return estado.matricular();
+    public void matricular() {
+        estado.matricular();
+        this.estado = new AlunoEstadoMatriculado();
     }
 
-    public EstadoAluno trancar() {
-        return estado.trancar();
+    public void trancar() {
+        estado.trancar();
+        this.estado = new AlunoEstadoTrancado();
     }
 
-    public EstadoAluno formar() {
-        return estado.formar();
+    public void formar() {
+        estado.formar();
+        this.estado = new AlunoEstadoFormado();
     }
 
-    public EstadoAluno suspender() {
-        return estado.suspender();
+    public void suspender() {
+        estado.suspender();
+        this.estado = new AlunoEstadoSuspenso();
     }
 
-    public EstadoAluno evadir() {
-        return estado.evadir();
+    public void evadir() {
+        estado.evadir();
+        this.estado = new AlunoEstadoEvadido();
     }
 
-    public EstadoAluno jubilar() {
-        return estado.jubilar();
+    public void jubilar() {
+        estado.jubilar();
+        this.estado = new AlunoEstadoJubilado();
     }
 }
