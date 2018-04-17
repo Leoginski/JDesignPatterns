@@ -6,12 +6,7 @@
 package model;
 
 import padraostate.AlunoEstado;
-import padraostate.AlunoEstadoEvadido;
-import padraostate.AlunoEstadoFormado;
-import padraostate.AlunoEstadoJubilado;
 import padraostate.AlunoEstadoMatriculado;
-import padraostate.AlunoEstadoSuspenso;
-import padraostate.AlunoEstadoTrancado;
 
 /**
  *
@@ -28,6 +23,10 @@ public class Aluno {
         this.estado = new AlunoEstadoMatriculado();
     }
 
+    public void setEstado(AlunoEstado estado) {
+        this.estado = estado;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -41,32 +40,26 @@ public class Aluno {
     }
 
     public void matricular() {
-        estado.matricular();
-        this.estado = new AlunoEstadoMatriculado();
+        estado.matricular(this);
     }
 
     public void trancar() {
-        estado.trancar();
-        this.estado = new AlunoEstadoTrancado();
+        estado.trancar(this);
     }
 
     public void formar() {
-        estado.formar();
-        this.estado = new AlunoEstadoFormado();
+        estado.formar(this);
     }
 
     public void suspender() {
-        estado.suspender();
-        this.estado = new AlunoEstadoSuspenso();
+        estado.suspender(this);
     }
 
     public void evadir() {
-        estado.evadir();
-        this.estado = new AlunoEstadoEvadido();
+        estado.evadir(this);
     }
 
     public void jubilar() {
-        estado.jubilar();
-        this.estado = new AlunoEstadoJubilado();
+        estado.jubilar(this);
     }
 }

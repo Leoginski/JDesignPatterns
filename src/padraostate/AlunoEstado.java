@@ -6,6 +6,7 @@
 package padraostate;
 
 import enumerable.EstadoAluno;
+import model.Aluno;
 
 /**
  *
@@ -14,11 +15,11 @@ import enumerable.EstadoAluno;
 public interface AlunoEstado {
     
     public EstadoAluno getEstado();
-    public EstadoAluno matricular();
-    public EstadoAluno evadir();
-    public EstadoAluno formar();
-    public EstadoAluno jubilar();
-    public EstadoAluno suspender();
-    public EstadoAluno trancar();
+    public void matricular(Aluno aluno);
+    public void evadir(Aluno aluno);
+    public void formar(Aluno aluno);
+    public void jubilar(Aluno aluno);
+    public void suspender(Aluno aluno);
+    public void trancar(Aluno aluno);
    
 }

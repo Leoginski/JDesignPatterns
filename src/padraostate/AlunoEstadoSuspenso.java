@@ -6,6 +6,7 @@
 package padraostate;
 
 import enumerable.EstadoAluno;
+import model.Aluno;
 
 /**
  *
@@ -19,38 +20,33 @@ public class AlunoEstadoSuspenso implements AlunoEstado {
     }
 
     @Override
-    public EstadoAluno matricular() {
+    public void matricular(Aluno aluno) {
+        aluno.setEstado(new AlunoEstadoMatriculado());
         System.out.println("O ALUNO FOI MATRICULADO");
-        return EstadoAluno.MATRICULADO;
     }
 
     @Override
-    public EstadoAluno evadir() {
+    public void evadir(Aluno aluno) {
         System.out.println("O ALUNO NÃO FOI EVADIDO");
-        return null;
     }
 
     @Override
-    public EstadoAluno formar() {
+    public void formar(Aluno aluno) {
         System.out.println("O ALUNO NÃO FORMOU");
-        return null;
     }
 
     @Override
-    public EstadoAluno jubilar() {
+    public void jubilar(Aluno aluno) {
         System.out.println("O ALUNO NÃO FOI JUBILADO");
-        return null;
     }
 
     @Override
-    public EstadoAluno suspender() {
+    public void suspender(Aluno aluno) {
         System.out.println("O ALUNO JÁ ESTA SUSPENSO");
-        return null;
     }
 
     @Override
-    public EstadoAluno trancar() {
+    public void trancar(Aluno aluno) {
         System.out.println("O ALUNO NÃO TRANCOU");
-        return null;
     }
 }
