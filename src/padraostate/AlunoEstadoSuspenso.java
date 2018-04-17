@@ -20,6 +20,7 @@ public class AlunoEstadoSuspenso implements AlunoEstado {
 
     @Override
     public EstadoAluno matricular() {
+        System.out.println("O ALUNO FOI MATRICULADO");
         return EstadoAluno.MATRICULADO;
     }
 

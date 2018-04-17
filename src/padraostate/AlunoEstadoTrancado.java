@@ -20,7 +20,7 @@ public class AlunoEstadoTrancado implements AlunoEstado {
 
     @Override
     public EstadoAluno matricular() {
-        System.out.println("O ALUNO MATRICULADO");
+        System.out.println("O ALUNO MATRICULOU");
         return EstadoAluno.MATRICULADO;
     }
 
@@ -50,7 +50,7 @@ public class AlunoEstadoTrancado implements AlunoEstado {
 
     @Override
     public EstadoAluno trancar() {
-        System.out.println("O ALUNO NÃO TRANCOU");
+        System.out.println("O ALUNO JÁ ESTÁ TRANCADO");
         return null;
     }
 }
