@@ -3,22 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package strategy;
+package templatemethod;
 
 /**
  *
  * @author Leoginski
  */
-public class PromocaoDiaMaes implements Promocao {
+public class AlunoPosGraduacao extends Aluno{
 
     @Override
-    public int obterDesconto() {
-        return 20;
+    public String getOrigem() {
+        return "Universidade ";
     }
-
-    @Override
-    public String obterPromocao() {
-        return "Dia das mãe";
-    }
-
 }

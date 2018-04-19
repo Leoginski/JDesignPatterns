@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package strategy;
+package templatemethod;
 
 /**
  *
  * @author Leoginski
  */
-public class TV extends Produto {
+public class AlunoGraduacao extends Aluno{
 
-    public TV() {
-        this.nome = "TV";
-        this.promocao = new PromocaoQueimaEstoque();
-        this.impressao = new ImpressaoImpressora();
+    @Override
+    public String getOrigem() {
+        return "Instituto ";
     }
+    
 }
